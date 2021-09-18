@@ -192,3 +192,4 @@ C:\Users\dell\source\repos\HTMLReportGenerationDemo\HTMLReportGenerationDemo\obj
 C:\Users\dell\source\repos\HTMLReportGenerationDemo\HTMLReportGenerationDemo\obj\Debug\netcoreapp3.1\HTMLReportGenerationDemo.pdb
 C:\Users\dell\source\repos\HTMLReportGenerationDemo\HTMLReportGenerationDemo\obj\Debug\netcoreapp3.1\HTMLReportGenerationDemo.genruntimeconfig.cache
 C:\Users\dell\source\repos\HTMLReportGenerationDemo\HTMLReportGenerationDemo\obj\Debug\netcoreapp3.1\HTMLReportGenerationDemo.csproj.AssemblyReference.cache
+C:\Users\dell\source\repos\HTMLReportGenerationDemo\HTMLReportGenerationDemo\bin\Debug\netcoreapp3.1\log4net.dll

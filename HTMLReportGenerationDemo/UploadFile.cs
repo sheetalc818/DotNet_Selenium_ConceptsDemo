@@ -2,6 +2,10 @@
 using OpenQA.Selenium.Chrome;
 using NUnit.Framework;
 using System;
+using log4net;
+using log4net.Repository;
+using System.Reflection;
+using System.IO;
 
 namespace HTMLReportGenerationDemo
 {
@@ -9,17 +13,25 @@ namespace HTMLReportGenerationDemo
     public class UploadFile
     {
         public static IWebDriver driver;
+        public static readonly ILog LogInfo = LogManager.GetLogger(typeof(Tests));
+        public static readonly ILoggerRepository loggerRepository = log4net.LogManager.GetRepository(Assembly.GetCallingAssembly());
+
         [SetUp]
         public void SetUp()
         {
             driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
+            var file = new FileInfo("log4net.config");
+            log4net.Config.XmlConfigurator.Configure(loggerRepository, file);
+            LogInfo.Info("Initializing SetUp");
         }
 
         [Test]
         public void SeleniumKeys()
         {
             driver.Navigate().GoToUrl("http:www.google.com");
+            LogInfo.Debug("Navigating to URL");
+
             System.Threading.Thread.Sleep(300);
             TakeScreenshot1();
             IWebElement MyElement = driver.FindElement(By.Name("q"));
@@ -38,6 +50,7 @@ namespace HTMLReportGenerationDemo
             driver.Navigate().GoToUrl("https://easyupload.io/");
             System.Threading.Thread.Sleep(300);
             TakeScreenshot1();
+            LogInfo.Debug("Taken a screenshot!!");
         }
 
         [Test]
@@ -53,6 +66,7 @@ namespace HTMLReportGenerationDemo
                 browse.SendKeys("C:\\Users\\dell\\Downloads\\pdf-23-1066007.pdf"); //Uploading the file using sendKeys
                 TakeScreenshot1();
                 System.Threading.Thread.Sleep(1000);
+                LogInfo.Debug("Uploaded File!!");
 
             }
             catch
